@@ -18,3 +18,18 @@ let newmyArr = myArr.myMap((el) => {
   return el * 2;
 });
 console.log(newmyArr);
+
+Array.prototype.myFilter = function (cb) {
+  let modified_arr = [];
+  for (let i = 0; i < this.length; i++) {
+    if (cb(this[i], i, this)) {
+      modified_arr.push(this[i]);
+    }
+  }
+  return modified_arr;
+};
+console.log(
+  myArr.myFilter((el) => {
+    return el > 2;
+  })
+);
